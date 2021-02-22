@@ -68,7 +68,7 @@ namespace microbit_IR {
 
   void onReceivable(){
     int x = rx->getData(&fmt, buf, 32);
-    //uBit.serial.send(buf, 4);
+    uBit.serial.send(buf, 4);
     if(actions.find((RemoteButton)buf[2]) == actions.end()) return;
     now = tsb.read_ms();
     if(now - lastact[(RemoteButton)buf[2]] < 100) return;
